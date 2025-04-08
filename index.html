@@ -19,11 +19,13 @@
       <p class="convite-texto">
         Pra gente preparar tudo com muito amor e cuidado, escreve seu nome aqui embaixo se for vir encher o Benício de carinho com a gente!
       </p>
-      <form id="form">
-        <label for="nome"><strong>Nome:</strong></label>
-        <input type="text" id="nome" name="nome" placeholder="Insira aqui sua resposta..." required />
-        <button type="submit">confirmar</button>
-      </form>
+      <form action="https://formsubmit.co/SEUEMAILAQUI" method="POST">
+  <input type="hidden" name="_subject" value="Nova confirmação de presença!">
+  <input type="hidden" name="_captcha" value="false">
+  <label for="name"><strong>Nome:</strong></label>
+  <input type="text" id="name" name="name" placeholder="Insira aqui sua resposta..." required />
+  <button type="submit">confirmar</button>
+</form>
       <p id="mensagem-enviada" style="display:none;">Obrigada por confirmar! 💙</p>
     </div>
   </div>
