@@ -2,143 +2,33 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Chá de Fraldas do Benício</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Comic Sans MS', cursive, sans-serif;
-      background: linear-gradient(to bottom, #e6f4fa, #ffffff);
-      background-image: url('https://i.imgur.com/b3JDqyd.png'); /* fundo de nuvens e estrelas */
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: center;
-      text-align: center;
-      padding: 20px;
-    }
-
-    .container {
-      background-color: rgba(255, 255, 255, 0.85);
-      border-radius: 20px;
-      padding: 20px;
-      max-width: 600px;
-      margin: auto;
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    }
-
-    h1 {
-      font-size: 1.8rem;
-      color: #d97e3f;
-      margin-bottom: 0;
-    }
-
-    h2 {
-      font-size: 2.5rem;
-      color: #7da2c1;
-      margin-top: 0;
-    }
-
-    p {
-      font-size: 1.1rem;
-      color: #7c4c2c;
-    }
-
-    form {
-      margin-top: 20px;
-    }
-
-    label {
-      font-weight: bold;
-      font-size: 1.1rem;
-      color: #7c4c2c;
-    }
-
-    input[type="text"] {
-      width: 90%;
-      padding: 10px;
-      margin-top: 10px;
-      border: 2px solid #ccc;
-      border-radius: 10px;
-      font-size: 1rem;
-    }
-
-    button {
-      margin-top: 15px;
-      padding: 10px 20px;
-      background-color: #b1d2db;
-      border: none;
-      border-radius: 15px;
-      font-size: 1.1rem;
-      color: #7c4c2c;
-      cursor: pointer;
-      transition: background 0.3s ease;
-    }
-
-    button:hover {
-      background-color: #96c4cf;
-    }
-
-    .footer {
-      margin-top: 20px;
-      font-size: 0.9rem;
-      color: #cc4c2c;
-    }
-
-    @media (max-width: 600px) {
-      h2 {
-        font-size: 2rem;
-      }
-
-      p, label, input, button {
-        font-size: 1rem;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="container">
-    <img src="https://i.imgur.com/y7kKaOg.png" alt="ursinho com balões" width="200">
-    <h1>CHÁ DE FRALDAS DO</h1>
-    <h2>Benício</h2>
-    <p>Pra gente preparar tudo com muito amor e cuidado, escreve seu nome aqui embaixo se for vir encher o Benício de carinho com a gente!</p>
+    <div class="left">
+      <h2>CHÁ DE FRALDAS DO</h2>
+      <img src="site beni.png" alt="Benício com balões" class="baloes" />
+      <h1>Benício</h1>
+      <p class="confirm-text">POR FAVOR CONFIRME SUA PRESENÇA ATÉ DIA 30/04</p>
+    </div>
 
-    <form id="rsvp-form">
-      <label for="name">Nome:</label><br />
-      <input type="text" id="name" name="name" required><br />
-      <button type="submit">confirmar</button>
-    </form>
-
-    <div class="footer">
-      POR FAVOR CONFIRME SUA PRESENÇA ATÉ DIA 30/04
+    <div class="right">
+      <p class="convite-texto">
+        Pra gente preparar tudo com muito amor e cuidado, escreve seu nome aqui embaixo se for vir encher o Benício de carinho com a gente!
+      </p>
+      <form id="form">
+        <label for="nome"><strong>Nome:</strong></label>
+        <input type="text" id="nome" name="nome" placeholder="Insira aqui sua resposta..." required />
+        <button type="submit">confirmar</button>
+      </form>
+      <p id="mensagem-enviada" style="display:none;">Obrigada por confirmar! 💙</p>
     </div>
   </div>
 
-  <script>
-    document.getElementById("rsvp-form").addEventListener("submit", async function (e) {
-      e.preventDefault();
-      const name = document.getElementById("name").value;
-
-      // Enviar os dados para um serviço externo de email (como EmailJS)
-      // Exemplo com EmailJS (você deve criar uma conta em emailjs.com e configurar seu template)
-
-      emailjs.init("SEU_USER_ID");
-      emailjs.send("SEU_SERVICE_ID", "SEU_TEMPLATE_ID", {
-        nome: name,
-      }).then(
-        function () {
-          alert("Presença confirmada com sucesso! Obrigada 💙");
-          document.getElementById("rsvp-form").reset();
-        },
-        function (error) {
-          alert("Ops! Algo deu errado. Tente novamente mais tarde.");
-          console.log(error);
-        }
-      );
-    });
-  </script>
-
-  <!-- EmailJS SDK -->
   <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
